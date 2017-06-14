@@ -1,23 +1,21 @@
 package com.company.utilities;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import com.company.Application;
 import com.company.declarations.nms_classes.AuthenticationSvc.SessionInfo;
 import com.company.declarations.nms_classes.UserManagementSvc.Organization;
 import com.google.gson.*;
+import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.sun.javafx.collections.MappingChange;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 /**
@@ -30,7 +28,6 @@ public class REST_Call{
         .create();
     private final PropertyReader                propertyReader          = new PropertyReader();
     private final Config                        config                  = Application.config;
-
     private boolean                             bTokenExpired           (){
         Long dateNow = new Date().getTime();
         boolean b1 = propertyReader.nmsURL == null                      || !config.getNmsURL().equals(propertyReader.nmsURL);
@@ -133,28 +130,28 @@ public class REST_Call{
         String user_pwd = "nms//" + config.getNmsAdminLogin() + ":" + config.getNmsAdminPassword();
         return Base64.encode(user_pwd.getBytes());
     }
+    public  String                              getStringResponse       (String requestURI,     REST_METHOD method,     String jsonBody){
+        return getResponseString(false, requestURI, method, jsonBody);
+    }
+
     public  <T>     T                           getToken                (Class<T>resultClass,   String requestURI) {
         String respond = getResponseString(true, requestURI, REST_METHOD.GET, null);
         return gson.fromJson(respond, resultClass);
     }
 
-    public  <T>     T                           getResponse             (Class<T>resultClass,   String requestURI,      REST_METHOD method,     String jsonBody){
+    public  <T>     T                           getDeserializedClass             (Class<T>resultClass,   String requestURI,      REST_METHOD method,     String jsonBody){
         String respond = getResponseString(false, requestURI, method, jsonBody);
         return gson.fromJson(respond,resultClass);
     }
-    public  <T>     T                           getResponse             (Class<T>resultClass,   String requestURI,      REST_METHOD method){
-        String respond = getResponseString(false, requestURI, method, null);
-//        Type collectionType = new TypeToken<T>(){}.getType();
-//        return (T) gson.fromJson( respond, collectionType);
-        return gson.fromJson(respond,resultClass);
-    }
-    public  <T>     List<T>                      getResponse             (String requestURI, REST_METHOD method, boolean b){
-        String respond = getResponseString(false, requestURI, method, null);
-//        REST_Call<T> foo = new REST_Call<>();
-//        Type collectionType = new TypeToken<Collection<T>>(){}.getType();
-//        return gson.fromJson(respond,collectionType);
-        Type collectionType = new TypeToken<List<T>>(){}.getType();
-        return gson.fromJson( respond, collectionType);
 
+    public  <T>     List<T>                     getDeserializedListOfClass       (Class<T>resultClass,   String requestURI,      REST_METHOD method,     String jsonBody){
+        String respond = getResponseString(false, requestURI, method, null);//
+        JsonParser jsonParser = new JsonParser();
+        JsonArray jsonArray = jsonParser.parse(respond).getAsJsonArray();
+        List<T> objs = new ArrayList<T>();
+        for (JsonElement jsonElement:jsonArray) {
+            objs.add(gson.fromJson( jsonElement.toString(), resultClass));
+        }
+        return objs;
     }
 }

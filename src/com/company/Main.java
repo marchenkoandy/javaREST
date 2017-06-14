@@ -4,6 +4,8 @@ import com.company.utilities.Help;
 import com.company.utilities.NMS_Action;
 import com.company.utilities.TokenCache;
 
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) throws IllegalAccessException {
@@ -15,6 +17,8 @@ public class Main {
             case NMS_Action.serverNMSVersion:
                 System.out.println(App.getNMS_ServerVersion());
                 System.out.println(App.orgainzationUID());
+                System.out.println(App.roleUID());
+                System.out.println(App.siteUID());
                 break;
             case NMS_Action.siteCreate:
                 break;

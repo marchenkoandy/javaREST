@@ -7,13 +7,11 @@ import com.company.utilities.REST_METHOD;
 /**
  * Created by AMarchenko on 2017-06-09.
  */
-public class NMS_Server{
+public class NMS_Server extends  NMS_Base{
 
     public String getVersion(){
         String uri = "/NMS/Platform/ConfigurationSvc/v1/Status";
-        PlatformStatus server = new REST_Call().getResponse(PlatformStatus.class, uri, REST_METHOD.GET);
-//        PlatformStatus server = new REST_Call().getResponse(uri, REST_METHOD.GET);
+        PlatformStatus server = rest_call.getDeserializedClass(PlatformStatus.class, uri, REST_METHOD.GET,null);
         return server.NMSVersion;
     }
-
 }
