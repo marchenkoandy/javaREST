@@ -1,14 +1,7 @@
 package com.company;
 
-
-
-import com.company.declarations.ApplicationSuperClasses.NMS_Organization;
-import com.company.declarations.ApplicationSuperClasses.NMS_Role;
-import com.company.declarations.ApplicationSuperClasses.NMS_Server;
-import com.company.declarations.ApplicationSuperClasses.NMS_Site;
+import com.company.declarations.ApplicationSuperClasses.*;
 import com.company.utilities.*;
-
-import java.io.IOException;
 
 /**
  * Created by AMarchenko on 2017-06-06.
@@ -35,14 +28,14 @@ public class Application{
     public String           siteUID                                         () throws IllegalAccessException {
         return new NMS_Site().getUID(orgainzationUID(),mustExist(config.getSiteName()));
     }
+    public String           groupUID                                        () throws IllegalAccessException {
+        return new NMS_Group().getUID(mustExist(config.getGroupName()));
+    }
+    public String           userUID                                         () throws IllegalAccessException {
+        return new NMS_User().getUID(groupUID(), mustExist(config.getUserLogin()));
+    }
 
 
-    public String groupUID(){
-        return "";
-    }
-    public String userUID(){
-        return "";
-    }
     public String partnerUID(){
         return "";
     }

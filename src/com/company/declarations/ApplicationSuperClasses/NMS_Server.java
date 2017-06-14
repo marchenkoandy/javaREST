@@ -1,7 +1,6 @@
 package com.company.declarations.ApplicationSuperClasses;
 
 import com.company.declarations.nms_classes.ConfigurationSvc.PlatformStatus;
-import com.company.utilities.REST_Call;
 import com.company.utilities.REST_METHOD;
 
 /**

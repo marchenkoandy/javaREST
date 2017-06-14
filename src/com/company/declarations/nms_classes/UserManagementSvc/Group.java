@@ -3,7 +3,7 @@ package com.company.declarations.nms_classes.UserManagementSvc;
 /**
  * Created by AMarchenko on 2017-06-14.
  */
-public class Group extends UserManagementSvc{
+public class Group  {
     public String CanCreateUser;
     public String CanDelete;
     public String CanDeleteUser;
@@ -15,4 +15,6 @@ public class Group extends UserManagementSvc{
     public String RoleUID;
     public String SiteName;
     public String SiteUID;
+    public String UID;
+    public String Name;
 }
