@@ -23,21 +23,21 @@ public final class Config {
         fillClassFieldsWithArgs(args);
     }
     private void                    fillClassFieldsWithArgs(String[] args){
-        Map<String,String> argsHash = new HashMap<>();
+        Map<String,String> argsMap = new HashMap<>();
         for(String item:args){
             String [] ar = item.split(":",2);
-            argsHash.put(ar[0],ar[1]);
+            argsMap.put(ar[0],ar[1]);
         }
-        setNmsURL                   (argsHash.get("nmsURL"));
-        setNmsAdminLogin            (argsHash.get("nmsAdminLogin"));
-        setNmsAdminPassword         (argsHash.get("nmsAdminPassword"));
-        setAction                   (argsHash.get("action"));
-        setSiteName                 (argsHash.get("siteName"));
-        setGroupName                (argsHash.get("groupName"));
-        setUserLogin                (argsHash.get("userLogin"));
-        setUserPassword             (argsHash.get("userPassword"));
-        setUserLicenseName          (argsHash.get("userLicenseName"));
-        setUserType                 (argsHash.get("userType"));
+        setNmsURL                   (argsMap.get("nmsURL"));
+        setNmsAdminLogin            (argsMap.get("nmsAdminLogin"));
+        setNmsAdminPassword         (argsMap.get("nmsAdminPassword"));
+        setAction                   (argsMap.get("action"));
+        setSiteName                 (argsMap.get("siteName"));
+        setGroupName                (argsMap.get("groupName"));
+        setUserLogin                (argsMap.get("userLogin"));
+        setUserPassword             (argsMap.get("userPassword"));
+        setUserLicenseName          (argsMap.get("userLicenseName"));
+        setUserType                 (argsMap.get("userType"));
     }
 
     public String                   getNmsURL() {
