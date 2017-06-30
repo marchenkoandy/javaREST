@@ -23,7 +23,7 @@ public final class Config {
         fillClassFieldsWithArgs(args);
     }
     private void                    fillClassFieldsWithArgs(String[] args){
-        Map<String,String> argsHash = new HashMap<String,String>();
+        Map<String,String> argsHash = new HashMap<>();
         for(String item:args){
             String [] ar = item.split(":",2);
             argsHash.put(ar[0],ar[1]);

@@ -10,7 +10,7 @@ public class Help {
     private static final String         CONSTANT_PARAMETER  = " nmsURL:https://nms-qa2.nuancehce.com nmsAdminLogin:ADMINLOGIN nmsAdminPassword:ADMINPWD";
     private static Map<String,String>   myMap;
     private static Map<String,String>   createMap           (){
-        Map<String,String>myMap = new HashMap<String, String>();
+        Map<String,String>myMap = new HashMap<>();
         myMap.put(NMS_Action.serverNMSVersion,      "%s");
         myMap.put(NMS_Action.userCreate,            "%s Hi");
         myMap.put(NMS_Action.userDelete,            "%s");

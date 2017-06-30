@@ -1,7 +1,5 @@
 package com.company.declarations.nms_classes.UserManagementSvc;
 
-import java.util.Date;
-
 /**
  * Created by AMarchenko on 2017-06-15.
  */

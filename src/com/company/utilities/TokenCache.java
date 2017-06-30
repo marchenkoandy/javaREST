@@ -55,7 +55,7 @@ public class TokenCache {
                 fr = new FileOutputStream(file);
                 Properties property = new Properties();
                 for(Map.Entry<String, String> item : cache.entrySet()){
-                    property.setProperty(item.getKey().toString(),item.getValue().toString());
+                    property.setProperty(item.getKey(),item.getValue());
                 }
                 property.store(fr,"");
             } catch (FileNotFoundException e) {

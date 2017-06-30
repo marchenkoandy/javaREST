@@ -1,9 +1,7 @@
 package com.company.utilities;
 
 import java.io.*;
-import java.lang.reflect.Field;
 import java.util.Properties;
-import org.apache.commons.beanutils.*;
 
 /**
  * Created by AMarchenko on 2017-06-07.
@@ -18,7 +16,7 @@ public class PropertyReader {
     public Long SessionTokenExpirationTime;
 
 
-    private void beShurePropertyFileExists(File f){
+    private void beSurePropertyFileExists(File f){
 //        System.out.println(f.getAbsoluteFile());
         if (!f.exists()){
             try {
@@ -35,7 +33,7 @@ public class PropertyReader {
         FileInputStream fis=null;
         Properties property = new Properties();
         try {
-            beShurePropertyFileExists(file);
+            beSurePropertyFileExists(file);
             fis = new FileInputStream(file);
             property.load(fis);
             this.nmsURL = property.getProperty("nmsURL");
@@ -52,7 +50,7 @@ public class PropertyReader {
                 try {
                     fis.close();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
             }
         }
@@ -79,7 +77,7 @@ public class PropertyReader {
                 try {
                     fr.close();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
             }
 

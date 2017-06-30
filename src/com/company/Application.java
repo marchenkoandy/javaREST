@@ -7,8 +7,8 @@ import com.company.utilities.*;
  * Created by AMarchenko on 2017-06-06.
  */
 
-public class Application{
-    public                                      Application                 (String args[]) {
+public class Application {
+    public                                      Application                 ( String args[]) {
         config = getConfig(args);
     }
     public static Config    config;
@@ -17,7 +17,7 @@ public class Application{
         return config;
     }
 
-    public String           orgainzationUID                                 () throws IllegalAccessException {
+    public String           organizationUID                                 () throws IllegalAccessException {
         return new NMS_Organization().getUID(null);
 
     }
@@ -26,7 +26,7 @@ public class Application{
         return new NMS_Role().getUID(roleName);
     }
     public String           siteUID                                         () throws IllegalAccessException {
-        return new NMS_Site().getUID(orgainzationUID(),mustExist(config.getSiteName()));
+        return new NMS_Site().getUID(organizationUID(),mustExist(config.getSiteName()));
     }
     public String           groupUID                                        () throws IllegalAccessException {
         return new NMS_Group().getUID(mustExist(config.getGroupName()));

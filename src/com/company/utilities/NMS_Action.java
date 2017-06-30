@@ -1,6 +1,5 @@
 package com.company.utilities;
 
-import java.lang.reflect.Field;
 
 /**
  * Created by AMarchenko on 2017-06-09.

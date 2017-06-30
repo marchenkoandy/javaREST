@@ -1,21 +1,15 @@
 package com.company.utilities;
 
 import java.io.*;
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
-
 import com.company.Application;
 import com.company.declarations.nms_classes.AuthenticationSvc.SessionInfo;
-import com.company.declarations.nms_classes.UserManagementSvc.Organization;
 import com.google.gson.*;
-import com.google.gson.JsonArray;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-import com.sun.javafx.collections.MappingChange;
+//import com.google.gson.JsonArray;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 /**
@@ -37,7 +31,7 @@ public class REST_Call{
         return  (b1 || b2 || b3 || b4);
     }
     public String                               token                   () {
-        String token="";
+        String token;
         if (bTokenExpired()) {
             String url = "/NMS/Platform/AuthenticationSvc/v1/ValidateCredentials?productGuid=7CEADE5E-E98D-4AE7-A839-C3C4AA32162C";
             SessionInfo respond = getToken(SessionInfo.class, url);
@@ -52,6 +46,7 @@ public class REST_Call{
         } else {
             token = propertyReader.SessionToken;
         }
+        System.out.println(token);
         return token;
     }
     public static class DateTypeAdapter         implements JsonDeserializer<Date> {
@@ -148,7 +143,7 @@ public class REST_Call{
         String respond = getResponseString(false, requestURI, method, null);//
         JsonParser jsonParser = new JsonParser();
         JsonArray jsonArray = jsonParser.parse(respond).getAsJsonArray();
-        List<T> objs = new ArrayList<T>();
+        List<T> objs = new ArrayList<>();
         for (JsonElement jsonElement:jsonArray) {
             objs.add(gson.fromJson( jsonElement.toString(), resultClass));
         }
