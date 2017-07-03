@@ -26,12 +26,12 @@ public class EnvironmentName {
             this.configurationSvc       = property.getProperty("configurationSvc");
             this.v1                     = property.getProperty("v1");
 
-            this.v1                     = property.getProperty("organizations");
-            this.v1                     = property.getProperty("sites");
-            this.v1                     = property.getProperty("groups");
-            this.v1                     = property.getProperty("users");
-            this.v1                     = property.getProperty("status");
-            this.v1                     = property.getProperty("roles");
+            this.organizations          = property.getProperty("organizations");
+            this.sites                  = property.getProperty("sites");
+            this.groups                 = property.getProperty("groups");
+            this.users                  = property.getProperty("users");
+            this.status                 = property.getProperty("status");
+            this.roles                  = property.getProperty("roles");
         }catch (IOException e){
             throw new RuntimeException(e);
         }
