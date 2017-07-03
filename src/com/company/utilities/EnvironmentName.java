@@ -65,7 +65,6 @@ public class EnvironmentName {
     public static String platformAuthenticationSvc;
     public static String platformUserManagementSvc;
     public static String platformConfigurationSvc;
-
     public static String organizations;
     public static String sites;
     public static String groups;

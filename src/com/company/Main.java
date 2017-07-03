@@ -18,7 +18,7 @@ public class Main {
                 System.out.println(EnvironmentName.platformConfigurationSvc);
                 System.out.println(EnvironmentName.roleName);
                 help.print();
-//                System.out.println(App.getNMS_ServerVersion());
+                System.out.println(App.getNMS_ServerVersion());
 //                System.out.println(App.orgainzationUID());
 //                System.out.println(App.roleUID());
 //                System.out.println(App.siteUID());
