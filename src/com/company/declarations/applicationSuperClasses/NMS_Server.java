@@ -1,6 +1,7 @@
-package com.company.declarations.ApplicationSuperClasses;
+package com.company.declarations.applicationSuperClasses;
 
-import com.company.declarations.nms_classes.ConfigurationSvc.PlatformStatus;
+import com.company.declarations.nms_classes.configurationSvc.PlatformStatus;
+import com.company.utilities.EnvironmentName;
 import com.company.utilities.REST_METHOD;
 
 /**
@@ -9,7 +10,7 @@ import com.company.utilities.REST_METHOD;
 public class NMS_Server extends  NMS_Base{
 
     public String getVersion(){
-        String uri = "/NMS/Platform/ConfigurationSvc/v1/Status";
+        String uri = EnvironmentName.platformConfigurationSvc + EnvironmentName.status;
         PlatformStatus server = rest_call.getDeserializedClass(PlatformStatus.class, uri, REST_METHOD.GET,null);
         return server.NMSVersion;
     }

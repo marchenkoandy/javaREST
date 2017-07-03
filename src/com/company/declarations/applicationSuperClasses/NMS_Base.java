@@ -1,4 +1,4 @@
-package com.company.declarations.ApplicationSuperClasses;
+package com.company.declarations.applicationSuperClasses;
 
 import com.company.utilities.REST_Call;
 import com.company.utilities.REST_METHOD;

@@ -1,4 +1,4 @@
-package com.company.declarations.nms_classes.ConfigurationSvc;
+package com.company.declarations.nms_classes.configurationSvc;
 
 /**
  * Created by AMarchenko on 2017-06-09.

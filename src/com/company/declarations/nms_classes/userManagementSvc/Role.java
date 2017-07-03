@@ -1,4 +1,4 @@
-package com.company.declarations.nms_classes.UserManagementSvc;
+package com.company.declarations.nms_classes.userManagementSvc;
 
 /**
  * Created by AMarchenko on 2017-06-14.

@@ -7,7 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 import com.company.Application;
-import com.company.declarations.nms_classes.AuthenticationSvc.SessionInfo;
+import com.company.declarations.nms_classes.authenticationSvc.SessionInfo;
 import com.google.gson.*;
 //import com.google.gson.JsonArray;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
@@ -33,7 +33,7 @@ public class REST_Call{
     public String                               token                   () {
         String token;
         if (bTokenExpired()) {
-            String url = "/NMS/Platform/AuthenticationSvc/v1/ValidateCredentials?productGuid=7CEADE5E-E98D-4AE7-A839-C3C4AA32162C";
+            String url = EnvironmentName.platformAuthenticationSvc + "/ValidateCredentials?productGuid=7CEADE5E-E98D-4AE7-A839-C3C4AA32162C"; //"/NMS/Platform/AuthenticationSvc/v1/ValidateCredentials?productGuid=7CEADE5E-E98D-4AE7-A839-C3C4AA32162C";
             SessionInfo respond = getToken(SessionInfo.class, url);
             token = "session//" + respond.SessionToken + ":";
             token = Base64.encode(token.getBytes());

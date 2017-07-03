@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.declarations.ApplicationSuperClasses.*;
+import com.company.declarations.applicationSuperClasses.*;
 import com.company.utilities.*;
 
 /**
@@ -10,6 +10,7 @@ import com.company.utilities.*;
 public class Application {
     public                                      Application                 ( String args[]) {
         config = getConfig(args);
+        new EnvironmentName();
     }
     public static Config    config;
     public Config           getConfig                                       (String[] args){
@@ -22,7 +23,7 @@ public class Application {
 
     }
     public String           roleUID                                         () throws IllegalAccessException {
-        String roleName = "Dragon Medical Author";//AM 06/14/2017 at this moment role name is only this;
+        String roleName = EnvironmentName.roleName; //"Dragon Medical Author";//AM 06/14/2017 at this moment role name is only this;
         return new NMS_Role().getUID(roleName);
     }
     public String           siteUID                                         () throws IllegalAccessException {

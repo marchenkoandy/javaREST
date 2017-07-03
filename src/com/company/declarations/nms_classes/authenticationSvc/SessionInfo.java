@@ -1,4 +1,4 @@
-package com.company.declarations.nms_classes.AuthenticationSvc;
+package com.company.declarations.nms_classes.authenticationSvc;
 
 import java.util.Date;
 

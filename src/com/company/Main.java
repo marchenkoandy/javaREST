@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.utilities.EnvironmentName;
 import com.company.utilities.Help;
 import com.company.utilities.NMS_Action;
 
@@ -12,7 +13,12 @@ public class Main {
         String action = App.config.getAction();
         switch (action) {
             case NMS_Action.serverNMSVersion:
-                System.out.println(App.getNMS_ServerVersion());
+                System.out.println(EnvironmentName.platformAuthenticationSvc);
+                System.out.println(EnvironmentName.platformUserManagementSvc);
+                System.out.println(EnvironmentName.platformConfigurationSvc);
+                System.out.println(EnvironmentName.roleName);
+                help.print();
+//                System.out.println(App.getNMS_ServerVersion());
 //                System.out.println(App.orgainzationUID());
 //                System.out.println(App.roleUID());
 //                System.out.println(App.siteUID());

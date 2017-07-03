@@ -1,4 +1,4 @@
-package com.company.Tests;
+package com.company.tests;
 
 
 
