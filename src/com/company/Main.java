@@ -19,11 +19,11 @@ public class Main {
                 System.out.println(EnvironmentName.roleName);
                 help.print();
                 System.out.println(App.getNMS_ServerVersion());
-//                System.out.println(App.orgainzationUID());
-//                System.out.println(App.roleUID());
-//                System.out.println(App.siteUID());
-//                System.out.println(App.groupUID());
-//                System.out.println(App.userUID());
+                System.out.println(App.organizationUID());
+                System.out.println(App.roleUID());
+                System.out.println(App.siteUID());
+                System.out.println(App.groupUID());
+                System.out.println(App.userUID());
                 break;
             case NMS_Action.siteCreate:
                 break;
